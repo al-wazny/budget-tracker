@@ -6,15 +6,22 @@ import styles from "../styles/Home.module.css";
 import Banner from "../components/banner";
 import SavingGoal from "../components/savingGoal";
 import Ticket from "../components/Ticket";
+import Budget from "../components/budget";
+
 const Home: NextPage = () => {
   return (
     <div className={styles.body}>
       <Banner />
       <SavingGoal />
-      <Ticket expens={{ color: "red" }} />
-      <Ticket expens={{ color: "green" }} />
+      <Budget /> {/*//! give it a state of positiv or negativ */}
+      <section className={styles.latestExpensesContainer + " container"}>
+        <div className={styles.latestExpenses}>
+          LATEST EXPENSES
+          <hr />
+        </div>
+        <Ticket />
+      </section>
     </div>
-    /* pass color as prop to display if the expens is negativ or positiv */
   );
 };
 

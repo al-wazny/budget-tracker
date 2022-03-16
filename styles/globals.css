@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.container {
+  margin: 2rem 1.25rem;
+  border-radius: 15px;
+  box-shadow: 15px 1px 30px #aaaaaa, -15px -15px 30px #ffffff;
+}

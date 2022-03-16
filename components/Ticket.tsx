@@ -1,27 +1,48 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
+import TicketBody from "../components/TicketBody";
 
-type Props = {
-  expens: {};
-  amount?: number;
-  date?: number;
-  title?: string;
-};
+type Props = [
+  {
+    amount?: number;
+    date?: Date;
+    title?: string;
+  }
+];
 
-// write API to fetch Props
+//* dummy data here to test component
+const data = [
+  {
+    amount: 4.2,
+    date: new Date(),
+    title: "Samenbank",
+  },
+  {
+    amount: -4.2,
+    date: new Date(),
+    title: "Pornhub",
+  },
+];
 
-const Ticket: React.FC<Props> = ({ expens }) => {
-  return (
-    <div className={styles.ticketContainer}>
-      <div className={styles.content}>
-        <div className={styles.row}>
-          <h3>Pornhub</h3>
-          <h3 style={expens}>-4.20</h3>
-        </div>
-        <p className={styles.date}>12.01.2022</p>
-      </div>
-    </div>
-  );
+// TODO check wether the amount of the expense is negativ or positiv to display correct color
+// TODO write API to fetch Props
+//! here is the call to map over the given data on a seperate component
+
+const Ticket = (): JSX.Element[] => {
+  return data.map((ticket) => {
+    //destructur current object and use its data
+    const { amount, date, title } = ticket;
+    return (
+      <>
+        <TicketBody
+          key={amount} // TODO find better key than the amount
+          amount={amount}
+          date={date.toLocaleDateString()}
+          title={title}
+        />
+      </>
+    );
+  });
 };
 
 export default Ticket;
