@@ -2,16 +2,14 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import TicketBody from "../components/TicketBody";
 
-type Props = [
-  {
-    amount?: number;
-    date?: Date;
-    title?: string;
-  }
-];
+type Ticket = {
+  amount: number;
+  date: Date;
+  title: string;
+}[];
 
 //* dummy data here to test component
-const data = [
+const data: Ticket = [
   {
     amount: 4.2,
     date: new Date(),
@@ -24,7 +22,6 @@ const data = [
   },
 ];
 
-// TODO check wether the amount of the expense is negativ or positiv to display correct color
 // TODO write API to fetch Props
 //! here is the call to map over the given data on a seperate component
 
@@ -35,7 +32,7 @@ const Ticket = (): JSX.Element[] => {
     return (
       <>
         <TicketBody
-          key={amount} // TODO find better key than the amount
+          key={title} // TODO find better key than the title
           amount={amount}
           date={date.toLocaleDateString()}
           title={title}

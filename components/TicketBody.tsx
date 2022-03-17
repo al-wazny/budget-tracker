@@ -4,8 +4,8 @@ import styles from "../styles/Home.module.css";
 
 type Props = {
   amount: number;
-  date?: string;
-  title?: string;
+  date: string;
+  title: string;
 };
 
 //! Using this component to keep the data fetching inside another File (Ticket)
